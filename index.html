@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .input {
+            margin: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" class="input">
+    <button id="btn" onclick="">Reverse words</button>
+    <button id="btn2" onclick="">Reverse word order</button>
+    <button id="btn3" onclick="">Capital</button>
+</body>
+<script>
+    let inputElement = document.querySelector('.input');
+    
+    let reverseWordsButton = document.querySelector('#btn');
+    reverseWordsButton.addEventListener("click", () => {
+        let input = inputElement.value;
+        let output = input.split(' ').map(word => word.split('').reverse().join('')).join(' ');
+        let resultElement = document.createElement('h2');
+        resultElement.innerHTML = output;
+        document.body.appendChild(resultElement);
+    });
+
+    let reverseOrderButton = document.querySelector('#btn2');
+    reverseOrderButton.addEventListener("click", () => {
+        let input = inputElement.value;
+        let output = input.split(" ").reverse().join(" ");
+        let resultElement = document.createElement('h2');
+        resultElement.innerHTML = output;
+        document.body.appendChild(resultElement);
+    });
+
+    let capitalizeButton = document.querySelector('#btn3');
+    capitalizeButton.addEventListener("click", () => {
+        let input = inputElement.value;
+        let output = input.split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
+        let resultElement = document.createElement('h2');
+        resultElement.innerHTML = output;
+        document.body.appendChild(resultElement);
+    });
+</script>
+
+</html>
